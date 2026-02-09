@@ -10,7 +10,7 @@ const Timeline = ({
   showFilters = false, // Now controlled by parent
   activeFilters = [], // Now receives array of active filters instead of single activeFilter
   lightMode = false,
-  // centermostCard = null, // REMOVED: Card title to highlight based on scroll position
+  centermostCard = null, // Card title to auto-expand based on scroll position
   ...props 
 }) => {
   const { getCurrentHighlights } = useTypewriterHighlight();
@@ -83,7 +83,7 @@ const Timeline = ({
                     skills={item.skills || []}
                     lightMode={lightMode}
                     className="timeline__card"
-                    // isScrollHighlighted={item.title === centermostCard} // REMOVED
+                    isCentered={item.title === centermostCard} // Auto-expansion based on centered state
                     isTypewriterHighlighted={highlights.timelineCards.includes(item.title)}
                   />
                 </div>

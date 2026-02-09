@@ -319,7 +319,7 @@
   max-width: 100%; /* Responsive - don't exceed container width */
   max-height: 300px; /* Reasonable max height to prevent huge images */
   height: auto; /* Maintain aspect ratio */
-  border-radius: 12px; /* Rounded corners as requested */
+  border-radius: 16px; /* Match card border radius for visual consistency */
   border: none; /* No borders as requested */
   object-fit: contain; /* Maintain aspect ratio, fit within bounds */
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */

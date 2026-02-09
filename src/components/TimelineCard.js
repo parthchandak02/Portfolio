@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ExternalLink, FileText, MapPin, Calendar } from 'lucide-react';
 import { iconMap } from '../data/timelineData';
 import './TimelineCard.css';
@@ -15,19 +15,28 @@ const TimelineCard = ({
   volume,
   url, // New URL field for external links
   skills = [], // Skill/technology icons for this card
-  // isScrollHighlighted = false, // REMOVED: No longer using scroll-based highlighting
+  isCentered = false, // Auto-expansion when card is centered in viewport
   isTypewriterHighlighted = false,
   defaultExpanded = false,
-  // autoExpanded = false, // REMOVED: Auto-expansion controlled by scroll position
   lightMode = false,
   className = '',
   ...props 
 }) => {
-  const [isExpanded, setIsExpanded] = useState(defaultExpanded);
+  const [isManuallyExpanded, setIsManuallyExpanded] = useState(defaultExpanded);
   const [clickedIcons, setClickedIcons] = useState(new Set()); // Track clicked nav icons
+  const wasCenteredRef = useRef(isCentered);
   
-  // Simplified expansion logic - just use isExpanded state
-  const effectiveExpanded = isExpanded;
+  // Reset manual expansion when card loses centered state (ensures single-card expansion)
+  useEffect(() => {
+    if (wasCenteredRef.current && !isCentered) {
+      // Card was centered but now isn't - reset manual expansion
+      setIsManuallyExpanded(false);
+    }
+    wasCenteredRef.current = isCentered;
+  }, [isCentered]);
+  
+  // Expansion logic: auto-expand when centered, or keep manual state
+  const effectiveExpanded = isCentered || isManuallyExpanded;
 
   // Handle navigation icon clicks for persistent orange state
   const handleIconClick = (iconName, event) => {
@@ -54,7 +63,7 @@ const TimelineCard = ({
         {/* Header section - always visible */}
         <div 
           className="timeline-card__header"
-          onClick={() => setIsExpanded(!isExpanded)}
+          onClick={() => setIsManuallyExpanded(!isManuallyExpanded)}
         >
           <div className="timeline-card__header-content">
             <h3 className="timeline-card__title">{title}</h3>

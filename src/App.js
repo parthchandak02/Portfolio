@@ -57,7 +57,7 @@ export default function App() {
   };
   
   // Track which category section is currently visible and centermost card when no filters are active
-  const { visibleCategory } = useScrollHighlight('all'); // Used for sidebar category highlighting
+  const { visibleCategory, centermostCard } = useScrollHighlight('all'); // Used for sidebar category highlighting and card auto-expansion
 
   // Get unique categories for filter buttons (excluding 'all')
   const categories = useMemo(() => {
@@ -150,7 +150,7 @@ export default function App() {
                  showFilters={false} // Filters are now handled by LeftSidebar
                  lightMode={lightMode}
                  className="timeline-in-scroll"
-                 // centermostCard={centermostCard} // REMOVED: No longer using card-level scroll highlighting
+                 centermostCard={centermostCard} // Re-enabled for center-based auto-expansion
                />
               </>
             )}

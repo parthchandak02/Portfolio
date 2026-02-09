@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { ExternalLink, FileText, MapPin, Calendar } from 'lucide-react';
 import { iconMap } from '../data/timelineData';
 import './TimelineCard.css';
@@ -15,28 +15,17 @@ const TimelineCard = ({
   volume,
   url, // New URL field for external links
   skills = [], // Skill/technology icons for this card
-  isCentered = false, // Auto-expansion when card is centered in viewport
   isTypewriterHighlighted = false,
-  defaultExpanded = false,
   lightMode = false,
   className = '',
   ...props 
 }) => {
-  const [isManuallyExpanded, setIsManuallyExpanded] = useState(defaultExpanded);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [clickedIcons, setClickedIcons] = useState(new Set()); // Track clicked nav icons
-  const wasCenteredRef = useRef(isCentered);
   
-  // Reset manual expansion when card loses centered state (ensures single-card expansion)
-  useEffect(() => {
-    if (wasCenteredRef.current && !isCentered) {
-      // Card was centered but now isn't - reset manual expansion
-      setIsManuallyExpanded(false);
-    }
-    wasCenteredRef.current = isCentered;
-  }, [isCentered]);
-  
-  // Expansion logic: auto-expand when centered, or keep manual state
-  const effectiveExpanded = isCentered || isManuallyExpanded;
+  const handleHeaderClick = () => {
+    setIsExpanded((prev) => !prev);
+  };
 
   // Handle navigation icon clicks for persistent orange state
   const handleIconClick = (iconName, event) => {
@@ -55,7 +44,7 @@ const TimelineCard = ({
   
   return (
     <div 
-      className={`timeline-card glass glass-strong glass-interactive ${effectiveExpanded ? 'expanded' : 'collapsed'} ${lightMode ? 'timeline-card--light' : 'timeline-card--dark'} ${isTypewriterHighlighted ? 'timeline-card--typewriter-highlighted' : ''} ${categoryClass} ${className}`} 
+      className={`timeline-card glass glass-strong glass-interactive ${isExpanded ? 'expanded' : 'collapsed'} ${lightMode ? 'timeline-card--light' : 'timeline-card--dark'} ${isTypewriterHighlighted ? 'timeline-card--typewriter-highlighted' : ''} ${categoryClass} ${className}`} 
       {...props}
     >
       {/* Content container */}
@@ -63,7 +52,7 @@ const TimelineCard = ({
         {/* Header section - always visible */}
         <div 
           className="timeline-card__header"
-          onClick={() => setIsManuallyExpanded(!isManuallyExpanded)}
+          onClick={handleHeaderClick}
         >
           <div className="timeline-card__header-content">
             <h3 className="timeline-card__title">{title}</h3>
@@ -89,7 +78,7 @@ const TimelineCard = ({
             <svg 
               viewBox="0 0 24 24" 
               fill="currentColor"
-              className={`timeline-card__chevron ${effectiveExpanded ? 'expanded' : ''}`}
+              className={`timeline-card__chevron ${isExpanded ? 'expanded' : ''}`}
             >
               <path d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
             </svg>
@@ -97,7 +86,7 @@ const TimelineCard = ({
         </div>
         
         {/* Expandable content */}
-        <div className={`timeline-card__expandable ${effectiveExpanded ? 'expanded' : 'collapsed'}`}>
+        <div className={`timeline-card__expandable ${isExpanded ? 'expanded' : 'collapsed'}`}>
           {/* Meta information */}
           {(volume || location || url) && (
             <div className="timeline-card__meta">

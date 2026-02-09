@@ -17,7 +17,7 @@ This isn't just another static portfolio site—it's an **interactive 3D experie
 - Real-time **light refraction physics** through a 3D prism
 - **Mouse-controlled light beam** with lens flare effects
 - **Dual interaction modes**: Play mode (immersive 3D) and Resume mode (timeline view)
-- **Glass-morphism UI** with dark/light theme support
+- **Glassmorphism UI** with dark/light theme support
 - Zero backend required—fully static and blazing fast
 
 **Live Demo:** [parthchandak.info](https://parthchandak.info)
@@ -198,7 +198,7 @@ git push
 **When to Skip vs. Build:**
 
 ✅ **Skip builds for:**
-- README/documentation updates
+- Documentation updates
 - Code comments
 - .gitignore changes
 - Non-code files
@@ -306,7 +306,7 @@ NODE_OPTIONS=--max-old-space-size=4096 npm run build
 
 **Design:**
 - [Lucide Icons](https://lucide.dev)
-- [Glass-morphism Generator](https://hype4.academy/tools/glassmorphism-generator)
+- [Glassmorphism Generator](https://hype4.academy/tools/glassmorphism-generator)
 
 ---
 

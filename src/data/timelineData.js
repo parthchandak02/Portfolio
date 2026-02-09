@@ -52,7 +52,7 @@ export const iconMap = {
   'Process Optimization': Cog,
   'Data Analysis': ChartBar,
   'Electric Vehicles': TruckElectric,
-  'CAD Design': PencilRuler,
+  'CAD': PencilRuler,
   // New icons for enhanced navigation
   'JSON': FileJson,
   'Presentation': Presentation,
@@ -71,10 +71,9 @@ export const iconMap = {
   // Latest missing icons from new additions
   'Shell': Terminal,
   'LLMs': BrainCircuit,
-  'Google AppsScript': Settings,
-  'Javascript': Code,
+  'Google Apps Script': Settings,
   'Finance': HandCoins,
-  'Typescript': Code,
+  'TypeScript': Code,
   'SQL': Database,
   'Automation': IterationCw,
   'Team Player': Users,
@@ -135,13 +134,13 @@ export const timelineDataByCategory = {
         "date": "October 2018 - January 2022",
         "category": "experience",
         "location": "Foster City, CA",
-        "description": "Tracked 12,000+ parts with custom built scripts leading to less than 10 part traceability errors. Created tools and processes for 40+ technicians, the manufacturing quality, testing and decrease material workflows. Manufactured vehicle hardware for 10+ products in their life cycles, from DFMEA to OQC.",
+        "description": "Tracked 12,000+ parts with custom built scripts leading to less than 10 part traceability errors. Created tools and processes for 40+ technicians, improving manufacturing quality, testing, and material workflows. Manufactured vehicle hardware for 10+ products in their life cycles, from DFMEA to OQC.",
         "skills": [
             "Python",
-            "Javascript",
+            "JavaScript",
             "SQL",
             "Manufacturing",
-            "CAD Design",
+            "CAD",
             "Automation"
         ]
     },
@@ -156,7 +155,7 @@ export const timelineDataByCategory = {
         "skills": [
             "Data Analysis",
             "Electric Vehicles",
-            "CAD Design"
+            "CAD"
         ]
     },
     {
@@ -169,7 +168,7 @@ export const timelineDataByCategory = {
         "description": "Achieved a minimum 10% higher production rate with LEAN manufacturing and CAD/CAM prototyping for hard-wall shelters.",
         "skills": [
             "Manufacturing",
-            "CAD Design",
+            "CAD",
             "Process Optimization"
         ]
     },
@@ -218,13 +217,13 @@ export const timelineDataByCategory = {
         "skills": [
             "Robotics",
             "Automation",
-            "CAD Design",
+            "CAD",
             "Materials Science",
             "Computer Science"
         ]
     },
     {
-        "title": "Essentials of UX Design, User Experience",
+        "title": "Essentials of UX Design",
         "date": "June 2022 - August 2022",
         "category": "education",
         "company": "UC Berkeley Extension",
@@ -293,7 +292,7 @@ export const timelineDataByCategory = {
         "company": "Mentor Discover Inspire",
         "companyLogo": "/logos/mdi-logo.png",
         "location": "Mentor Discover Inspire",
-        "description": "Leading 3+ cross-team initiatives to enhance inter and intra team cohesion. Managing innovative mentorship programs and organizational development.",
+        "description": "Leading 3+ cross-team initiatives to enhance inter- and intra-team cohesion. Managing innovative mentorship programs and organizational development.",
         "typewriterTitle": "Team Leader",
         "typewriterPrefix": "I am a",
         "skills": [
@@ -603,8 +602,8 @@ export const timelineDataByCategory = {
         "typewriterTitle": "Programmer",
         "typewriterPrefix": "I am a",
         "skills": [
-            "Google AppsScript",
-            "Javascript",
+            "Google Apps Script",
+            "JavaScript",
             "LLMs"
         ]
     },
@@ -613,7 +612,7 @@ export const timelineDataByCategory = {
         "date": "2024",
         "category": "projects",
         "companyLogo": "/logos/ibkr-logo.png",
-        "description": "Comprehensive REST API interface for Interactive Brokers platform enabling automated trading, portfolio management, and real-time market data integration.",
+        "description": "Comprehensive REST API for Interactive Brokers platform enabling automated trading, portfolio management, and real-time market data integration.",
         "url": "https://github.com/parthchandak02/ibkr-ibind-rest-api",
         "typewriterTitle": "Programmer",
         "typewriterPrefix": "I am a",
@@ -632,8 +631,8 @@ export const timelineDataByCategory = {
         "typewriterTitle": "Programmer",
         "typewriterPrefix": "I am a",
         "skills": [
-            "Typescript",
-            "Javascript",
+            "TypeScript",
+            "JavaScript",
             "Shell"
         ]
     },
@@ -667,7 +666,7 @@ export const timelineDataByCategory = {
         "typewriterPrefix": "I am a",
         "skills": [
             "Materials Science",
-            "CAD Design"
+            "CAD"
         ]
     },
     {
@@ -684,7 +683,7 @@ export const timelineDataByCategory = {
         "skills": [
             "Robotics",
             "Automation",
-            "CAD Design",
+            "CAD",
             "Computer Science"
         ]
     }

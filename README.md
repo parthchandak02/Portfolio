@@ -1,72 +1,90 @@
-# Interactive 3D Portfolio Template
+# Hi, I'm Parth Chandak 👋
 
-An open-source portfolio website template featuring an interactive 3D prism visualization with light refraction effects. Built with React and Three.js, this template showcases your professional experience, education, research, and projects through an elegant glass-morphism UI with dual interaction modes.
+I'm a **Creative Technologist at Zoox**, where I design and prototype experiences for autonomous vehicles. My work sits at the intersection of hardware, software, and design—building UX-focused platforms that reduce iteration time from weeks to days while helping shape the future of transportation.
 
-## Features
+Before diving into creative technology, I spent years as a Manufacturing Engineer at Zoox and worked on Tesla's Supercharger infrastructure. I hold a **BS in Mechanical Engineering** from Washington State University (with minors in Computer Science and Mathematics) and studied **UX Design at UC Berkeley Extension**.
 
-- Interactive 3D prism with real-time light refraction and lens flare effects
-- Dual mode system: Play mode (3D focus) and Resume mode (timeline view)
-- Mouse-controlled light beam with lock/unlock functionality
-- Dark/light theme toggle
-- Category-based timeline filtering
-- Scroll-based highlighting and typewriter animation
-- Fully responsive glass-morphism design
-- Zero backend required - fully static deployment
+Beyond my day job, I've spoken at international conferences, have a **patent pending** for audio prioritization technology, and recently led a fundraising campaign that **raised $55,000 to build a school in Nepal**, impacting 210+ students.
 
-## Quick Start
+This portfolio is my way of sharing my journey through interactive 3D storytelling. Feel free to explore, fork, and make it your own.
+
+---
+
+## ✨ What Makes This Portfolio Special
+
+This isn't just another static portfolio site—it's an **interactive 3D experience** built with:
+
+- Real-time **light refraction physics** through a 3D prism
+- **Mouse-controlled light beam** with lens flare effects
+- **Dual interaction modes**: Play mode (immersive 3D) and Resume mode (timeline view)
+- **Glass-morphism UI** with dark/light theme support
+- Zero backend required—fully static and blazing fast
+
+**Live Demo:** [parthchandak.info](https://parthchandak.info)
+
+---
+
+## 🚀 Quick Start
 
 ```bash
+# Clone this repository
+git clone https://github.com/parthchandak02/Portfolio.git
+cd Portfolio
+
 # Install dependencies
 npm ci
 
-# Start development server (localhost:3000)
+# Start development server (http://localhost:3000)
 npm run dev
 
-# Production build
+# Build for production
 npm run build
 ```
 
-## Tech Stack
+---
 
-- **Frontend**: React 19.1.0 (Create React App)
-- **3D Graphics**: Three.js 0.176.0, React Three Fiber 9.1.2
-- **3D Effects**: @react-three/drei, @react-three/postprocessing
-- **Icons**: Lucide React
-- **Build Tool**: react-scripts (CRA)
-- **Deployment**: Cloudflare Pages (or any static host)
+## 🏗 Tech Stack
 
-## Project Structure
+- **Framework:** React 19 (Create React App)
+- **3D Graphics:** Three.js + React Three Fiber
+- **Effects:** @react-three/drei, @react-three/postprocessing
+- **Icons:** Lucide React
+- **Deployment:** Cloudflare Pages
+- **Package Manager:** npm
+
+---
+
+## 📁 Project Structure
 
 ```
 src/
 ├── components/          # React components
-│   ├── Canvas3D.js     # 3D canvas container
+│   ├── Canvas3D.js     # 3D canvas + post-processing
 │   ├── Scene.js        # 3D scene orchestration
-│   ├── Beam.js         # Light beam effect
-│   ├── Prism.js        # 3D prism model
-│   ├── Rainbow.js      # Refraction effect
-│   ├── Timeline.js     # Resume timeline
+│   ├── Beam.js         # Interactive light beam
+│   ├── Prism.js        # 3D prism model (GLTF)
+│   ├── Rainbow.js      # Refraction effects
+│   ├── Timeline.js     # Resume content
 │   └── ...             # UI components
+├── hooks/              # Custom React hooks
 ├── contexts/           # React contexts
-├── hooks/              # Custom hooks
 ├── data/
-│   └── timelineData.js # YOUR PORTFOLIO CONTENT HERE
-├── App.js              # Root component
-├── index.js            # Entry point
-└── styles.css          # Global styles
+│   └── timelineData.js # YOUR CONTENT GOES HERE
+└── App.js              # Root component
 
 public/
 ├── gltf/               # 3D models
-├── textures/           # Textures and materials
-├── lut/                # Color grading
+├── textures/           # Materials & textures
 ├── logos/              # Company/school logos
-├── images/             # Project images
+├── images/             # Project screenshots
 └── fonts/              # Custom fonts
 ```
 
-## Customization Guide
+---
 
-### 1. Add Your Content
+## 🎨 Making It Yours
+
+### 1. Update Your Content
 
 Edit `src/data/timelineData.js`:
 
@@ -79,104 +97,144 @@ export const timelineDataByCategory = {
       companyLogo: "/logos/company-logo.png",
       date: "Jan 2020 - Present",
       location: "City, State",
-      description: "What you did...",
-      skills: ["React", "Node.js", "AWS"],
+      description: "What you accomplished...",
+      skills: ["React", "Node.js", "Design"],
       typewriterTitle: "Software Engineer",
       typewriterPrefix: "I am a"
     }
   ],
   education: [...],
   projects: [...],
-  // 9 categories total
+  // 9 categories: experience, education, patent, projects, 
+  //               speaking, awards, research, media, volunteering
 };
 ```
 
-Categories: `experience`, `education`, `patent`, `projects`, `speaking`, `awards`, `research`, `media`, `volunteering`
-
-### 2. Replace Assets
+### 2. Add Your Assets
 
 **Logos** (`public/logos/`):
-- Add company/institution logos as PNG files
-- Reference in `companyLogo` field in timeline data
+- Add company/school logos as PNG files
+- Reference them in your timeline data
 
 **Project Images** (`public/images/`):
-- Add project screenshots/thumbnails
-- Keep descriptive filenames
+- Add project screenshots
+- Use descriptive filenames
 
 **3D Model** (optional):
 - Replace `public/gltf/prism.glb` with your own model
-- Update reference in `src/components/Prism.js`
+- Update the reference in `src/components/Prism.js`
 
-### 3. Update Branding
+### 3. Customize Branding
 
-**Domain**:
-- Update `homepage` in `package.json` to your domain
-- Replace `public/CNAME` with your custom domain
+**Domain:**
+- Update `homepage` in `package.json`
+- Replace `public/CNAME` with your domain
 
-**Social Links**:
-- Edit `src/components/RightSidebar.js` to update social media URLs
+**Social Links:**
+- Edit `src/components/RightSidebar.js`
 
-**Colors/Theme**:
-- Customize `src/styles.css` for color scheme
-- Adjust glass-morphism styles in component CSS files
+**Theme:**
+- Customize colors in `src/styles.css`
+- Adjust glass-morphism in component CSS files
 
 ### 4. Icon Mapping
 
-Icons are mapped in `src/data/timelineData.js`:
+Map skills to icons in `src/data/timelineData.js`:
 
 ```javascript
 export const iconMap = {
-  'Python': Code,
-  'JavaScript': Terminal,
   'React': Zap,
-  // Add your skills and corresponding Lucide icons
+  'Python': Code,
+  'Figma': Figma,
+  // Add your skills
 };
 ```
 
-Browse available icons at: https://lucide.dev
+Browse available icons: [lucide.dev](https://lucide.dev)
 
-## Deployment
+---
+
+## 🌐 Deployment
 
 ### Cloudflare Pages (Recommended)
 
-1. **Connect to GitHub:**
-   - Go to Cloudflare Dashboard > Workers & Pages > Create
-   - Select "Pages" > "Connect to Git"
-   - Choose your forked repository
+**Initial Setup:**
 
-2. **Build Settings:**
+1. Go to [Cloudflare Dashboard](https://dash.cloudflare.com) → Workers & Pages → Create
+2. Select **Pages** → **Connect to Git**
+3. Choose your GitHub repository
+4. Configure build settings:
    - **Production branch:** `main`
    - **Build command:** `npm run build`
    - **Build output directory:** `build`
-   - **Root directory:** (leave blank)
+5. Click **Save and Deploy**
 
-3. **Deploy:**
-   - Click "Save and Deploy"
-   - Site live at `<project-name>.pages.dev`
+Your site will be live at `<project-name>.pages.dev` in ~2 minutes.
 
-4. **Custom Domain (Optional):**
-   - Go to project > Custom domains > Set up a domain
-   - Add your domain (DNS auto-configured if in Cloudflare)
+**Add Custom Domain:**
+
+1. Go to your Pages project → **Custom domains**
+2. Click **Set up a domain**
+3. Enter your domain
+4. Cloudflare auto-configures DNS and SSL
+
+**Auto-Deployments:**
+
+Every push to `main` automatically triggers a rebuild and deploys to production.
+
+**Skip Builds for Docs-Only Changes:**
+
+```bash
+# Use [skip ci] or [ci skip] in commit message
+git commit -m "docs: update README [skip ci]"
+git push
+
+# This prevents unnecessary rebuilds for:
+# - README updates
+# - Documentation changes
+# - Comment-only changes
+```
+
+**When to Skip vs. Build:**
+
+✅ **Skip builds for:**
+- README/documentation updates
+- Code comments
+- .gitignore changes
+- Non-code files
+
+❌ **Always build for:**
+- Source code changes (src/)
+- Asset updates (public/)
+- Dependency changes (package.json)
+- Configuration changes
+
+**Rollback if Needed:**
+
+1. Go to Pages project → **Deployments**
+2. Find last working deployment
+3. Click **⋮** → **Rollback to this deployment**
 
 ### Alternative Hosts
 
 Works with any static host:
-- **Vercel**: Auto-detects Create React App
-- **Netlify**: Build command `npm run build`, publish directory `build`
-- **GitHub Pages**: Use `gh-pages` package (not included by default)
+- **Vercel:** Auto-detects Create React App
+- **Netlify:** Build command `npm run build`, publish dir `build`
+- **GitHub Pages:** Requires `gh-pages` package (not included)
 
-## Development
+---
+
+## 💡 Development Tips
 
 ### Available Scripts
 
 ```bash
-npm run dev          # Start dev server
-npm run build        # Production build
-npm run lint         # Check code quality
+npm run dev          # Start dev server (kills port 3000 first)
+npm run build        # Production build (no source maps)
 npm run lint:fix     # Auto-fix linting issues
 npm run format       # Format code with Prettier
 npm run clean        # Remove build directory
-npm run health       # Check dependencies and security
+npm run health       # Check dependencies + security
 ```
 
 ### Local Build Verification
@@ -188,83 +246,96 @@ npx serve -s build -l 8080
 # Visit http://localhost:8080
 ```
 
-## Best Practices
+### Performance Tips
 
-### Security
+- Optimize images before adding (use WebP when possible)
+- Keep 3D model under 5MB
+- Test on mobile devices
+- Use Chrome DevTools Lighthouse for performance audits
+
+### Security Best Practices
 
 - Never commit API keys or secrets
-- Use environment variables for sensitive data (prefix with `REACT_APP_`)
-- Keep dependencies updated: `npm audit fix`
+- Use environment variables (prefix with `REACT_APP_`)
+- Run `npm audit fix` regularly
+- Keep dependencies updated
 
-### Performance
+### Accessibility Considerations
 
-- Optimize images before adding to `public/images/`
-- Keep 3D model file sizes reasonable (<5MB)
-- Test on mobile devices for performance
-
-### Accessibility
-
-- Provide fallback content for users without WebGL
-- Ensure keyboard navigation works in Resume mode
+- Provide fallback for users without WebGL support
+- Ensure keyboard navigation works
 - Test with screen readers
+- Maintain sufficient color contrast
 
-### Content Tips
+---
 
-- Keep descriptions concise and scannable
-- Use consistent date formats
-- Add alt text considerations for logos
-- Test timeline scrolling with many entries
-
-## Troubleshooting
+## 🐛 Troubleshooting
 
 **Build fails with "out of memory":**
-- Increase Node memory: `NODE_OPTIONS=--max-old-space-size=4096 npm run build`
+```bash
+NODE_OPTIONS=--max-old-space-size=4096 npm run build
+```
 
 **3D scene not rendering:**
 - Check browser console for WebGL errors
 - Verify `public/gltf/prism.glb` exists
-- Test on different browsers
+- Test on different browsers (Chrome, Firefox, Safari)
 
-**Assets not loading (404 errors):**
-- Verify `homepage` in `package.json` matches your deployment URL
-- Check file paths are correct in code
+**Assets return 404:**
+- Verify `homepage` in `package.json` matches deployment URL
+- Check file paths in code
 - Ensure files exist in `public/` directory
 
 **Cloudflare build fails:**
-- Ensure only one lockfile exists (`package-lock.json` or `yarn.lock`)
-- Check build command matches `npm run build`
-- Verify Node version compatibility (>=16.0.0)
+- Ensure only one lockfile exists (`package-lock.json`)
+- Verify build command is `npm run build`
+- Check Node version compatibility (>=16.0.0)
 
-## Browser Support
+---
 
-- Chrome/Edge 90+
-- Firefox 88+
-- Safari 14+
-- WebGL required for 3D features
+## 📚 Learning Resources
 
-## Contributing
+**React & Three.js:**
+- [React Documentation](https://react.dev)
+- [Three.js Journey](https://threejs-journey.com) (excellent course)
+- [React Three Fiber Docs](https://docs.pmnd.rs/react-three-fiber/)
 
-Contributions welcome! Please:
-1. Fork the repository
-2. Create a feature branch
-3. Test thoroughly
-4. Submit a pull request
+**Deployment:**
+- [Cloudflare Pages Docs](https://developers.cloudflare.com/pages/)
+- [Create React App Deployment](https://create-react-app.dev/docs/deployment/)
 
-## License
+**Design:**
+- [Lucide Icons](https://lucide.dev)
+- [Glass-morphism Generator](https://hype4.academy/tools/glassmorphism-generator)
+
+---
+
+## 🤝 Contributing
+
+Found a bug or have a feature suggestion? Feel free to:
+1. Open an issue on GitHub
+2. Submit a pull request
+3. Fork and customize for your own use
+
+---
+
+## 📄 License
 
 MIT License - free to use for personal and commercial projects.
 
-## Credits
+---
 
-Built with:
-- [React](https://reactjs.org/)
-- [Three.js](https://threejs.org/)
-- [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/)
-- [Lucide Icons](https://lucide.dev/)
+## 💬 Let's Connect
 
-## Support
+If you found this useful or built something cool with it, I'd love to hear about it!
 
-For issues or questions:
-- Open an issue on GitHub
-- Check existing issues for solutions
-- Review the troubleshooting section above
+- **Portfolio:** [parthchandak.info](https://parthchandak.info)
+- **GitHub:** [@parthchandak02](https://github.com/parthchandak02)
+- **LinkedIn:** [linkedin.com/in/parthchandak02](https://linkedin.com/in/parthchandak02)
+
+---
+
+<div align="center">
+  <p>Built with React, Three.js, and too much coffee ☕</p>
+  <p>Made with ❤️ by Parth Chandak</p>
+</div>

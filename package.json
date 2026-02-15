@@ -51,10 +51,12 @@
     "three-stdlib": "^2.36.0"
   },
   "scripts": {
-    "prestart": "kill-port 3000",
-    "start": "cross-env GENERATE_SOURCEMAP=false BROWSER=none react-scripts start",
-    "predev": "kill-port 3000",
-    "dev": "npm run start",
+    "cleanup:port": "node -e \"const {execSync}=require('node:child_process');try{const pids=execSync('lsof -ti tcp:3000',{stdio:['ignore','pipe','ignore']}).toString().trim();if(pids){execSync('kill-port 3000',{stdio:'ignore'});}}catch(_){process.exit(0);}\"",
+    "prestart": "npm run cleanup:port",
+    "start": "npm run start:app",
+    "predev": "npm run cleanup:port",
+    "dev": "npm run start:app",
+    "start:app": "cross-env GENERATE_SOURCEMAP=false BROWSER=none react-scripts start",
     "build": "cross-env GENERATE_SOURCEMAP=false react-scripts build",
     "build:analyze": "npm run build && npx source-map-explorer 'build/static/js/*.js'",
     "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
